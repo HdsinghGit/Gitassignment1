@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+existing_df=pd.read_csv('E:/Datasets/trans_us.csv',index_col=0,thousands=',')
+existinf_df.drop('id',axis=1)
+existing_df.index.names=['values']
+existing_df.columns.names=['months']
+existing_df=existing_df.fillna(15)
+existing_df.head()
+
+from sklearn.decomposition import PCA
+pca=PCA(n_components=2)
+pca.fit(existing_df)
+
+existing_2d=pca.transform(existing_df)
+existing_df_2d=pd.DataFrame(existing_2d)
+existing_df_2d.index=existing_df.index
+existing_df_2d.columns=['PC1','PC2']
+existing_df_2d.head()
+
+print(pca.explained_variance_ratio_)
