@@ -1,0 +1,7 @@
+import tensorflow as tf
+hello= tf.constant("Hello, Tensorflow")
+sess= tf.session()
+print(sess.run(hello))
+c=tf.constant(50)
+d=tf.constant(40)
+print(sess.run(c+d))
